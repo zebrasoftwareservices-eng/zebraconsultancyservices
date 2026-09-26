@@ -8,6 +8,31 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
+  // Day / night mode: follows the system until the visitor picks one, then remembers it
+  var root = document.documentElement;
+  var themeBtn = document.getElementById("theme-toggle");
+  function labelTheme() {
+    if (themeBtn) themeBtn.setAttribute("aria-label", root.getAttribute("data-theme") === "night" ? "Switch to day mode" : "Switch to night mode");
+  }
+  labelTheme();
+  if (themeBtn) {
+    themeBtn.addEventListener("click", function () {
+      var next = root.getAttribute("data-theme") === "night" ? "day" : "night";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("zcs-theme", next); } catch (e) {}
+      labelTheme();
+    });
+  }
+  if (window.matchMedia) {
+    var mq = window.matchMedia("(prefers-color-scheme: dark)");
+    var follow = function (e) {
+      var saved = null;
+      try { saved = localStorage.getItem("zcs-theme"); } catch (err) {}
+      if (!saved) { root.setAttribute("data-theme", e.matches ? "night" : "day"); labelTheme(); }
+    };
+    if (mq.addEventListener) mq.addEventListener("change", follow);
+  }
+
   // Mobile menu
   var toggle = document.querySelector(".menu-toggle");
   var nav = document.getElementById("site-nav");

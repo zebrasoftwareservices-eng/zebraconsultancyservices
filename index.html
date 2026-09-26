@@ -11,11 +11,20 @@
   <meta property="og:url" content="https://zebraconsultancyservices.com/">
   <meta property="og:image" content="https://zebraconsultancyservices.com/img/chennaibeats-desktop.jpg">
   <meta name="theme-color" content="#141414">
+  <meta name="color-scheme" content="light dark">
   <link rel="canonical" href="https://zebraconsultancyservices.com/">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300..600;1,300..500&display=swap" rel="stylesheet">
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem("zcs-theme"); } catch (e) {}
+      if (t !== "day" && t !== "night") t = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "night" : "day";
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
@@ -37,6 +46,10 @@
       <div class="nav-actions">
         <a class="pill pill-dark pill-sm" href="#work">Our work</a>
         <a class="pill pill-dark pill-sm" href="#contact">Start a project</a>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to night mode">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
+        </button>
         <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
       </div>
     </div>
