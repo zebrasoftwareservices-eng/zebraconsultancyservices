@@ -2,6 +2,12 @@
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
 
+  // Header: transparent over the hero, solid once the page scrolls
+  var header = document.getElementById("site-header");
+  function onScroll() { if (header) header.classList.toggle("scrolled", window.scrollY > 40); }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
   // Mobile menu
   var toggle = document.querySelector(".menu-toggle");
   var nav = document.getElementById("site-nav");
