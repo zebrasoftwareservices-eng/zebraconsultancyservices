@@ -65,7 +65,9 @@ p { margin: 0; }
 }
 .nav { display: flex; align-items: center; justify-content: space-between; min-height: 68px; gap: 16px; }
 .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 800; letter-spacing: -.01em; font-variation-settings: "wdth" 112; }
-.brand-mark { width: 28px; height: 28px; color: var(--paint); flex: none; }
+.brand-mark { height: 25px; width: auto; flex: none; }
+.footer-brand { display: inline-flex; align-items: center; gap: 12px; }
+.footer-brand img { height: 20px; width: auto; }
 .nav-links { display: flex; align-items: center; gap: 28px; }
 .nav-links a:not(.btn) { text-decoration: none; color: var(--curb-light); font-size: .9375rem; font-weight: 500; }
 .nav-links a:not(.btn):hover { color: var(--paint); }
