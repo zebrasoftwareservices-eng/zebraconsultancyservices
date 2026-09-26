@@ -255,3 +255,5 @@ p { margin: 0; }
   .crossing span { animation: none; }
   .faq summary::after, .btn { transition: none; }
 }
+
+section[id] { scroll-margin-top: 68px; }
